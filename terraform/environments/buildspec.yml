@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - echo "Installing Python dependencies..."
+      - pip install -r backend/requirements.txt
+
+  build:
+    commands:
+      - echo "Running backend tests..."
+      - PYTHONPATH=backend pytest backend/tests -v
+
+artifacts:
+  files:
+    - '**/*'
